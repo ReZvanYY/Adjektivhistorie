@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <title>Adjektivhistorie</title>
+    <h1>Adjektivhistorie</h1>
+
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .textBox {
+            border: inset 5px black;
+            border-radius: 100px;
+            padding: 10px;
+            width: 500px;
+            display: block;
+            margin: auto;
+        }
+
+        button {
+            border: solid transparent;
+            background-color: white;
+            padding: 10px;
+        }
+     #buttonContainer{
+        text-align: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+
+
+    <script>
+        let app = document.getElementById('app');
+
+        updateView();
+
+        function updateView() {
+            app.innerHTML = /*HTML*/`
+            <div id="textbox" class="textBox">Det var engang en ___ ___ som ikke visste hva ___ ville ha for ___.
+                <br> ___ hadde nemmelig alt uten om forståelse for ___. </div>
+                
+                <div id="buttonContainer">
+                <button onclick="onclickWords(this)">Liten</button>
+                <button onclick="onclickWords(this)">Gutt</button>
+                <button onclick="onclickWords(this)">Gutten</button>
+                <button onclick="onclickWords(this)">Han</button>
+                <button onclick="onclickWords(this)">Jul</button>
+                <button onclick="onclickWords(this)">MVC</button>
+                </div>
+                `;
+        }
+        function onclickWords(htmlElement) {
+            let PressedButton = htmlElement.innerHTML;
+            let textbox = document.getElementById('textbox');
+            let textboxContent = textbox.innerHTML;
+            let blankAreaIndex = textboxContent.indexOf('___');
+            textboxContent = textboxContent.replace('___', PressedButton);
+            textbox.innerHTML = textboxContent;
+        }
+            
+        updateView();
+
+
+    </script>
+</body>
+
+</html>
